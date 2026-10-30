@@ -1,0 +1,11 @@
+# Windows / 로컬 도구 설정
+desktop.ini
+.claude/
+
+# 앱
+node_modules/
+.next/
+.data/
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
