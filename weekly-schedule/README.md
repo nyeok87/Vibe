@@ -46,7 +46,7 @@ npm run samples            # samples/2026-11-02/ 에 생성 (다른 주차: npm 
 1. Supabase 새 프로젝트 → SQL Editor에서 `supabase/schema.sql` 실행 (테이블, RLS, 비공개 버킷 `files` 생성)
 2. Supabase Project Settings > API 에서 `Project URL`, `service_role` 키 확인
 3. 이 폴더를 GitHub 저장소로 올리고 Vercel에서 Import
-4. Vercel 환경변수: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SESSION_SECRET`(긴 임의 문자열), `ACCESS_CODE`, `ADMIN_PASSWORD`
+4. Vercel 환경변수: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (Supabase 대시보드 Integrations → Vercel 연동을 쓰면 자동 등록). 선택: `SESSION_SECRET`(없으면 서비스 키에서 자동 파생), `ACCESS_CODE`(기본 1234), `ADMIN_PASSWORD`(기본 admin1234)
 5. Deploy
 
 service role 키는 서버에서만 쓰이고 브라우저로 나가지 않습니다. 브라우저(anon) 접근은 RLS로 모두 막혀 있습니다.
