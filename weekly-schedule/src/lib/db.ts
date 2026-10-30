@@ -132,7 +132,8 @@ let store: Store | null = null;
 export function db(): Store {
   if (store) return store;
   const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  // Vercel–Supabase 연동은 SUPABASE_SECRET_KEY 이름으로 등록한다
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
   if (url && key) {
     store = supabaseStore(createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } }));
   } else {

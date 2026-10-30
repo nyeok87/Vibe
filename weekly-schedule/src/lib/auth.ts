@@ -11,7 +11,7 @@ function secret(): string {
   const s = process.env.SESSION_SECRET;
   if (s) return s;
   // SESSION_SECRET이 없으면 서버 전용 Supabase 키에서 서명 키를 파생한다(Supabase–Vercel 연동만으로 배포 가능)
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
   if (key) return createHmac("sha256", key).update("weekly-schedule/session").digest("hex");
   if (process.env.VERCEL) throw new Error("SESSION_SECRET 환경변수를 설정해 주세요.");
   return "local-dev-secret-change-me";
